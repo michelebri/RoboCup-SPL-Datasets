@@ -1,0 +1,7 @@
+csv_root: color_dataset
+epochs: 15
+batch_size: 64
+lr: 0.001
+workers: 2
+device: cuda
+output: color_classifier.pt

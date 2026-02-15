@@ -26,11 +26,13 @@ def main(extract, datasets):
         value = data[key]
         local_path = root_dir / key / f"{key}.zip"
         print(f"Downloading {key}...")
+        """
         # No progress bar because the server doesn't tell us a Content-Length.
         with requests.get(f"{value['data']}/download", stream=True) as r:
             with local_path.open(mode="wb") as f:
                 shutil.copyfileobj(r.raw, f)
-        if extract:
+                """
+        if True and key != "B-Human":
             # This could totally be parallelized with downloading the next dataset.
             print(f"Extracting {key}...")
             with zipfile.ZipFile(local_path) as archive:
